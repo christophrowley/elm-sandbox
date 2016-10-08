@@ -4,7 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Html.App as App
-
+-- import VirtualDom exposing (..)
 
 -- model
 
@@ -46,10 +46,17 @@ update msg model =
 view : Model -> Html Msg
 view model =
   div []
+    [ div []
       [ input [ type' "text", onInput UpdateFirstName ][]
       , input [ type' "text", onInput UpdateLastName ][]
       , input [ type' "text", onInput UpdateEmail ][]
       ]
+    , div []
+      [ p [][text (model.firstName)]
+      , p [][text (model.lastName)]
+      , p [][text (model.email)]
+      ]
+    ]
 
 main =
   App.beginnerProgram
